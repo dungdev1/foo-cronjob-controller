@@ -1,0 +1,129 @@
+apiVersion: foo.com/v1
+kind: CronJob
+metadata:
+  labels:
+    app.kubernetes.io/name: cronjob
+    app.kubernetes.io/instance: cronjob-sample
+    app.kubernetes.io/part-of: cronjob
+    app.kubernetes.io/created-by: cronjob
+  name: cronjob-sample
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster; echo sleep 30 seconds; sleep 30;
+          restartPolicy: OnFailure
+---
+apiVersion: foo.com/v1
+kind: CronJob
+metadata:
+  labels:
+    app.kubernetes.io/name: cronjob
+    app.kubernetes.io/instance: cronjob-thomas
+    app.kubernetes.io/part-of: cronjob
+    app.kubernetes.io/created-by: cronjob
+  name: cronjob-sample1
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello Thomas; echo sleep 10 seconds; sleep 10;
+          restartPolicy: OnFailure
+---
+apiVersion: foo.com/v1
+kind: CronJob
+metadata:
+  labels:
+    app.kubernetes.io/name: cronjob
+    app.kubernetes.io/instance: cronjob-thomas
+    app.kubernetes.io/part-of: cronjob
+    app.kubernetes.io/created-by: cronjob
+  name: cronjob-sample2
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello Thomas; echo sleep 10 seconds; sleep 10;
+          restartPolicy: OnFailure
+---
+apiVersion: foo.com/v1
+kind: CronJob
+metadata:
+  labels:
+    app.kubernetes.io/name: cronjob
+    app.kubernetes.io/instance: cronjob-thomas
+    app.kubernetes.io/part-of: cronjob
+    app.kubernetes.io/created-by: cronjob
+  name: cronjob-sample3
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello Thomas; echo sleep 10 seconds; sleep 10;
+          restartPolicy: OnFailure
+---
+apiVersion: foo.com/v1
+kind: CronJob
+metadata:
+  labels:
+    app.kubernetes.io/name: cronjob
+    app.kubernetes.io/instance: cronjob-thomas
+    app.kubernetes.io/part-of: cronjob
+    app.kubernetes.io/created-by: cronjob
+  name: cronjob-sample4
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello Thomas; echo sleep 10 seconds; sleep 10;
+          restartPolicy: OnFailure
